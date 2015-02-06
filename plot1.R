@@ -17,12 +17,9 @@ fulltable$datetime <- strptime(paste(fulltable$Date, fulltable$Time), "%d/%m/%Y 
 rptdates <- c(as.Date("2007-02-01"), as.Date("2007-02-02"))
 rpttable <- fulltable[as.Date(fulltable$datetime) %in% rptdates,]
 ##
-##  View histogram
-##
-hist(rpttable$Global_active_power, col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)")
-##
 ## create plot1.png file for project
 ##
 png("plot1.png", width=480, height=480, bg="white")
+hist(rpttable$Global_active_power, col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)")
 dev.off()
 
