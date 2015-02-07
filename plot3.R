@@ -19,7 +19,7 @@ rpttable <- fulltable[as.Date(fulltable$datetime) %in% rptdates,]
 ##
 ## create plot3.png file for project
 ##
-png("Plot3.png",bg="white")
+png("plot3.png",bg="white")
 plot(rpttable$datetime,rpttable$Sub_metering_1,ylab="Energy sub metering",type="l",xlab="")
 plot.xy(xy.coords(rpttable$datetime,rpttable$Sub_metering_2),type="l",col="red")
 plot.xy(xy.coords(rpttable$datetime,rpttable$Sub_metering_3),type="l",col="blue")

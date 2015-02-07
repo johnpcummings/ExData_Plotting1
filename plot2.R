@@ -17,7 +17,7 @@ fulltable$datetime <- strptime(paste(fulltable$Date, fulltable$Time), "%d/%m/%Y 
 rptdates <- c(as.Date("2007-02-01"), as.Date("2007-02-02"))
 rpttable <- fulltable[as.Date(fulltable$datetime) %in% rptdates,]
 ##
-## create plot1.png file for project and view Plot2
+## create plot2.png file for project
 ##
 png("Plot2.png",bg="white")
 plot(rpttable$datetime, rpttable$Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)")

@@ -96,19 +96,125 @@ The four plots that you will need to construct are shown below.
 
 
 ![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
+##
+## Set working directory to folder with household_power_consumption.txt file
+##
+setwd("~/Johns Hopkins/Exploratory Data Analysis/Project One/Data")
+## Plot 1
+##
+##  Load all the data after downloading household_power_consumption.txt to working directory
+##
+fulltable <- read.table("household_power_consumption.txt", sep=";", header=TRUE, na.strings="?")
+##
+## Create datetime column type POSIxlt with original Date and Time columns
+##
+fulltable$datetime <- strptime(paste(fulltable$Date, fulltable$Time), "%d/%m/%Y %H:%M:%S")
+##
+## Seperate dates to be used in project One
+##
+rptdates <- c(as.Date("2007-02-01"), as.Date("2007-02-02"))
+rpttable <- fulltable[as.Date(fulltable$datetime) %in% rptdates,]
+##
+## create plot1.png file for project
+##
+png("plot1.png", width=480, height=480, bg="white")
+hist(rpttable$Global_active_power, col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)")
+dev.off()
 
 
 ### Plot 2
 
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
+##
+## Set working directory to folder with household_power_consumption.txt file
+##
+setwd("~/Johns Hopkins/Exploratory Data Analysis/Project One/Data")
+## Plot 1
+##
+##  Load all the data after downloading household_power_consumption.txt to working directory
+##
+fulltable <- read.table("household_power_consumption.txt", sep=";", header=TRUE, na.strings="?")
+##
+## Create datetime column type POSIxlt with original Date and Time columns
+##
+fulltable$datetime <- strptime(paste(fulltable$Date, fulltable$Time), "%d/%m/%Y %H:%M:%S")
+##
+## Seperate dates to be used in project One
+##
+rptdates <- c(as.Date("2007-02-01"), as.Date("2007-02-02"))
+rpttable <- fulltable[as.Date(fulltable$datetime) %in% rptdates,]
+##
+## create plot2.png file for project
+##
+png("Plot2.png",bg="white")
+plot(rpttable$datetime, rpttable$Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)")
+dev.off()
 
 
 ### Plot 3
 
 ![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+##
+## Set working directory to folder with household_power_consumption.txt file
+##
+setwd("~/Johns Hopkins/Exploratory Data Analysis/Project One/Data")
+## Plot 1
+##
+##  Load all the data after downloading household_power_consumption.txt to working directory
+##
+fulltable <- read.table("household_power_consumption.txt", sep=";", header=TRUE, na.strings="?")
+##
+## Create datetime column type POSIxlt with original Date and Time columns
+##
+fulltable$datetime <- strptime(paste(fulltable$Date, fulltable$Time), "%d/%m/%Y %H:%M:%S")
+##
+## Seperate dates to be used in project One
+##
+rptdates <- c(as.Date("2007-02-01"), as.Date("2007-02-02"))
+rpttable <- fulltable[as.Date(fulltable$datetime) %in% rptdates,]
+##
+## create plot3.png file for project
+##
+png("Plot3.png",bg="white")
+plot(rpttable$datetime,rpttable$Sub_metering_1,ylab="Energy sub metering",type="l",xlab="")
+plot.xy(xy.coords(rpttable$datetime,rpttable$Sub_metering_2),type="l",col="red")
+plot.xy(xy.coords(rpttable$datetime,rpttable$Sub_metering_3),type="l",col="blue")
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"),lty=c(1,1,1),col=c("black","red","blue"))
+dev.off()
 
 
 ### Plot 4
 
 ![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+##
+## Set working directory to folder with household_power_consumption.txt file
+##
+setwd("~/Johns Hopkins/Exploratory Data Analysis/Project One/Data")
+## Plot 1
+##
+##  Load all the data after downloading household_power_consumption.txt to working directory
+##
+fulltable <- read.table("household_power_consumption.txt", sep=";", header=TRUE, na.strings="?")
+##
+## Create datetime column type POSIxlt with original Date and Time columns
+##
+fulltable$datetime <- strptime(paste(fulltable$Date, fulltable$Time), "%d/%m/%Y %H:%M:%S")
+##
+## Seperate dates to be used in project One
+##
+rptdates <- c(as.Date("2007-02-01"), as.Date("2007-02-02"))
+rpttable <- fulltable[as.Date(fulltable$datetime) %in% rptdates,]
+##
+## create plot4.png file for project
+##
+png("Plot4.png",bg="white")
+par(mfrow=c(2,2))
+plot(rpttable$datetime,rpttable$Global_active_power,ylab="Global Active Power",type="l",xlab="")
+plot(rpttable$datetime,rpttable$Voltage,ylab="Voltage",type="l",xlab="datetime")
+plot(rpttable$datetime,rpttable$Sub_metering_1,ylab="Energy sub metering",type="l",xlab="")
+plot.xy(xy.coords(rpttable$datetime,rpttable$Sub_metering_2),type="l",col="red")
+plot.xy(xy.coords(rpttable$datetime,rpttable$Sub_metering_3),type="l",col="blue")
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"),lty=c(1,1,1),col=c("black","red","blue"))
+plot(rpttable$datetime,rpttable$Global_reactive_power,ylab="Global_reactive_power",type="l",xlab="datetime")
+dev.off()
 

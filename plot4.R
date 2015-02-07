@@ -19,7 +19,7 @@ rpttable <- fulltable[as.Date(fulltable$datetime) %in% rptdates,]
 ##
 ## create plot4.png file for project
 ##
-png("Plot4.png",bg="white")
+png("plot4.png",bg="white")
 par(mfrow=c(2,2))
 plot(rpttable$datetime,rpttable$Global_active_power,ylab="Global Active Power",type="l",xlab="")
 plot(rpttable$datetime,rpttable$Voltage,ylab="Voltage",type="l",xlab="datetime")
